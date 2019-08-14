@@ -1,15 +1,13 @@
-exports.index = (req, res) => {
-  let favJson = {
-    "foo": "Pizza",
-    "bar": "Roast Pork Kuckle"
+export function index(req, res) {
+  let json = {
+    "nome": "User",
   };
-  res.send(favJson);
-};
+  res.send(json);
+}
 
-exports.login = (req, res) => {
-  let favJson = {
-    "foo": "Pizza",
-    "bar": "Roast Pork Kuckle"
+export function login(req, res) {
+  let json = {
+    "nome": "Login",
   };
-  res.send(favJson);
-};
+  res.send(json);
+}
