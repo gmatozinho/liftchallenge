@@ -1,20 +1,22 @@
 import { Router } from 'express';
 var router = Router();
-
+const prefix = "/api";
 import { home } from './index';
 
 /* Controllers */
-import { index as _index, login } from '../controllers/users';
-import { index as __index } from '../controllers/dashboard';
+const userController = require('../controllers/user');
+const transactionController = require('../controllers/transaction');
 
 /* GET home page. */
-router.get('/', home);
+router.get(`/`, home);
 
-/* Users page */
-router.get('/users', _index);
-router.get('/user/login', login);
+/* users */
+router.get(`${prefix}/users`, userController.index);
+router.post(`${prefix}/user/login`, userController.login);
+router.get(`${prefix}/user/logout`, userController.logout);
 
-/* Dashboard Page */
-router.get('/dashboard', __index);
+/* transaction */
+router.get(`${prefix}/transaction`, userController.verifyToken, transactionController.listTransactions);
+router.get(`${prefix}/receivable`, userController.verifyToken, transactionController.listReceivable);
 
 export default router;
