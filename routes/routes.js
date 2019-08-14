@@ -18,5 +18,6 @@ router.get(`${prefix}/user/logout`, userController.logout);
 /* transaction */
 router.get(`${prefix}/transaction`, userController.verifyToken, transactionController.listTransactions);
 router.get(`${prefix}/receivable`, userController.verifyToken, transactionController.listReceivable);
+router.put(`${prefix}/receivable/anticipate`, userController.verifyToken, transactionController.anticipateReceivables);
 
 export default router;
