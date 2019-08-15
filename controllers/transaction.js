@@ -6,7 +6,7 @@ today.setDate(today.getDate() + 5);
 var validity = today;
 var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
 
-var transactionAproved = {
+const transactionAproved = {
     "number": 441,
     "emission": date ,
     "validity": validity.getFullYear()+'-'+(validity.getMonth()+1)+'-'+validity.getDate(),
@@ -19,7 +19,7 @@ var transactionAproved = {
     "tag": "TAG",
 }
 
-var receivable = {
+const receivable = {
     "id": 1,
     "number": transactionAproved.number,
     "emission": transactionAproved.emission,
@@ -34,24 +34,24 @@ var receivable = {
     "paid": true        
 }
 
-export function listTransactions(req, res) {
-    const transactionDenied = {
-        "number": 441,
-        "emission": date ,
-        "validity": validity.getFullYear()+'-'+(validity.getMonth()+1)+'-'+validity.getDate(),
-        "time": time,
-        "value": 514.80,
-        "flag": "mastercard",
-        "type": "debito",
-        "period": 1,
-        "status": "negada",
-        "tag": "TAG",    
-    }
+const transactionDenied = {
+    "number": 441,
+    "emission": date ,
+    "validity": validity.getFullYear()+'-'+(validity.getMonth()+1)+'-'+validity.getDate(),
+    "time": time,
+    "value": 514.80,
+    "flag": "mastercard",
+    "type": "debito",
+    "period": 1,
+    "status": "negada",
+    "tag": "TAG",    
+}
 
-    let transactions =  {
-        "transactions": [transactionDenied, transactionDenied, transactionAproved, transactionDenied, transactionAproved, transactionDenied ]
-    };
-    
+let transactions =  {
+    "transactions": [transactionDenied, transactionDenied, transactionAproved, transactionDenied, transactionAproved, transactionDenied ]
+};
+
+export function listTransactions(req, res) {
     res.status(200).send(transactions);
 }
 
@@ -79,5 +79,13 @@ export function anticipateReceivables(req, res) {
     } else {
         res.status(500).send('Recebivel nao existente!');      
     }    
+}
+
+export function exportCsv(req, res) {
+    let receivables =  {
+        "receivables": [receivable, receivable, receivable, receivable ]
+    };
+    
+    res.status(200).send(receivables);
     
 }
