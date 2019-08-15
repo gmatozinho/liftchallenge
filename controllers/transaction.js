@@ -1,16 +1,13 @@
+const { Parser } = require('json2csv');
+
 //Dados gerados para manipulação
-var tax = 0;  
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-today.setDate(today.getDate() + 5);
-var validity = today;
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(); 
+var tax = 0.03;  
 
 const transactionAproved = {
     "number": 441,
-    "emission": date ,
-    "validity": validity.getFullYear()+'-'+(validity.getMonth()+1)+'-'+validity.getDate(),
-    "time": time,
+    "emission": "2019-03-20" ,
+    "validity": "2019-03-25",
+    "time": "15:45:00",
     "value": 514.80,
     "flag": "mastercard",
     "type": "credito",
@@ -19,26 +16,11 @@ const transactionAproved = {
     "tag": "TAG",
 }
 
-const receivable = {
-    "id": 1,
-    "number": transactionAproved.number,
-    "emission": transactionAproved.emission,
-    "validity": transactionAproved.validity,
-    "time": transactionAproved.time,
-    "value": transactionAproved.value - (tax * transactionAproved),
-    "flag": transactionAproved.flag,
-    "type": transactionAproved.type,
-    "period": transactionAproved.type,
-    "status": transactionAproved.status,
-    "tag": transactionAproved.tag,
-    "paid": true        
-}
-
 const transactionDenied = {
     "number": 441,
-    "emission": date ,
-    "validity": validity.getFullYear()+'-'+(validity.getMonth()+1)+'-'+validity.getDate(),
-    "time": time,
+    "emission": "2019-03-20" ,
+    "validity": "2019-03-25",
+    "time": "15:45:00",
     "value": 514.80,
     "flag": "mastercard",
     "type": "debito",
@@ -47,33 +29,46 @@ const transactionDenied = {
     "tag": "TAG",    
 }
 
-let transactions =  {
-    "transactions": [transactionDenied, transactionDenied, transactionAproved, transactionDenied, transactionAproved, transactionDenied ]
-};
+const receivable = {
+    "id": 1,
+    "number": transactionAproved.number,
+    "emission": transactionAproved.emission,
+    "validity": transactionAproved.validity,
+    "time": transactionAproved.time,
+    "value": transactionAproved.value,
+    "receivevalue": Math.round(transactionAproved.value - (tax * transactionAproved.value)),
+    "flag": transactionAproved.flag,
+    "type": transactionAproved.type,
+    "period": transactionAproved.type,
+    "status": transactionAproved.status,
+    "tag": transactionAproved.tag,
+    "paid": true        
+}
+
+var transactions =  [transactionDenied, transactionDenied, transactionAproved, transactionDenied, transactionAproved, transactionDenied ];
+
+var receivables =  [receivable, receivable, receivable, receivable ];
+
+/* Functions */
 
 export function listTransactions(req, res) {
     res.status(200).send(transactions);
 }
 
 
-export function listReceivable(req, res) {
-    let receivables =  {
-        "receivables": [receivable, receivable, receivable, receivable ]
-    };
-    
-    res.status(200).send(receivables);
-    
+export function listReceivables(req, res) {    
+    res.status(200).send(receivables);    
 }
 
-export function anticipateReceivables(req, res) {
+export function anticipateReceivable(req, res) {
     const receivableId = req.body.id;
     const antecipateData = req.body.antecipate
 
     //Checagem dos valores e "checa a validade do Id" (no caso compara com o objeto previamente criado mas o ideal seria buscar num banco de dados)
     if(antecipateData && receivableId && receivableId === receivable.id) {
         const newReceivable = receivable
-        newReceivable.date = antecipateData.date;
-        newReceivable.value = antecipateData.value;
+        newReceivable.validity = antecipateData.date;
+        newReceivable.receivevalue = antecipateData.value;
         
         res.status(200).send(newReceivable);
     } else {
@@ -81,11 +76,26 @@ export function anticipateReceivables(req, res) {
     }    
 }
 
-export function exportCsv(req, res) {
-    let receivables =  {
-        "receivables": [receivable, receivable, receivable, receivable ]
-    };
+export function exportTransactionToCsv(req, res) {
+    const transactionFields = ["number", "emission", "validity", "time",
+    "value", "flag", "type", "period", "status", "tag"];
+
+    const json2csvTransactionParser = new Parser({ transactionFields });
     
-    res.status(200).send(receivables);
+    const csvTransaction = json2csvTransactionParser.parse(transactions);
+
+    res.attachment('reporttransaction.csv');
+    res.status(200).send(Buffer.from(csvTransaction));    
+}
+
+export function exportReceivableToCsv(req, res) {
+    const receivableFields = ["id","number", "emission", "validity", "time",
+    "value", "receivevalue", "flag", "type", "period", "status", "tag", "paid"];
+
+    const json2csvReceivableParser = new Parser({ receivableFields });
     
+    const csvReceivable = json2csvReceivableParser.parse(receivables);
+
+    res.attachment('reportreceivable.csv');
+    res.status(200).send(Buffer.from(csvReceivable));    
 }

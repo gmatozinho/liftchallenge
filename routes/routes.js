@@ -17,8 +17,9 @@ router.get(`${prefix}/user/logout`, userController.logout);
 
 /* transaction */
 router.get(`${prefix}/transaction`, userController.verifyToken, transactionController.listTransactions);
-router.get(`${prefix}/receivable`, userController.verifyToken, transactionController.listReceivable);
-router.put(`${prefix}/receivable/anticipate`, userController.verifyToken, transactionController.anticipateReceivables);
-router.get(`${prefix}/reports/csv`, userController.verifyToken, transactionController.listTransactions);
+router.get(`${prefix}/receivable`, userController.verifyToken, transactionController.listReceivables);
+router.put(`${prefix}/receivable/anticipate`, userController.verifyToken, transactionController.anticipateReceivable);
+router.get(`${prefix}/reports/csv/transaction`, userController.verifyToken, transactionController.exportTransactionToCsv);
+router.get(`${prefix}/reports/csv/receivable`, userController.verifyToken, transactionController.exportReceivableToCsv);
 
 export default router;
