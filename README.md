@@ -1,6 +1,6 @@
 # Projeto para o desafio liftbank:
 
-###### Este projeto contêm uma api node com as seguintes funcionalidades:
+## Este projeto contêm uma api node com as seguintes funcionalidades:
 
 **Login:** Logar o usuário
 
@@ -18,3 +18,10 @@
 > Arquivo postman e os exemplos de csv exportados estão contidos na pasta example files.
 
 > Link para documentação da api no postman: [Postman](https://documenter.getpostman.com/view/4737860/SVYxnavx?version=latest)
+
+## Para rodar
+
+```
+npm install
+npm start
+```
