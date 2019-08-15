@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "12c5f964-c912-47d2-ba4b-49541334c569",
+		"name": "Test liftapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/user/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"gustavo\",\n    \"password\": \"12345678\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/user/login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"gustavo\",\n    \"password\": \"12345678\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "161"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a1-bCLQlHgyiMoNYj5C5ra4CXOzPXM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:15:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"auth\": true,\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgyMTIyLCJleHAiOjE1NjU4ODI0MjJ9.5PQMO_BdETbvOTX8KCsX79O_8jwujgpPOcapAJVsNGA\"\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/transaction",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"transaction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1041"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"411-y1bOcjhHjQCALn0N9nAj+v/uvDs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:39:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"debito\",\n        \"period\": 1,\n        \"status\": \"negada\",\n        \"tag\": \"TAG\"\n    },\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"debito\",\n        \"period\": 1,\n        \"status\": \"negada\",\n        \"tag\": \"TAG\"\n    },\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": 12,\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\"\n    },\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"debito\",\n        \"period\": 1,\n        \"status\": \"negada\",\n        \"tag\": \"TAG\"\n    },\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": 12,\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\"\n    },\n    {\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"flag\": \"mastercard\",\n        \"type\": \"debito\",\n        \"period\": 1,\n        \"status\": \"negada\",\n        \"tag\": \"TAG\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/receivable",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/receivable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"receivable"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/receivable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/receivable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"receivable"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "885"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"375-cSN5ZMpQd+8RgDLTj1Wls8/BlL4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:39:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"receivevalue\": 499,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": \"credito\",\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\",\n        \"paid\": true\n    },\n    {\n        \"id\": 1,\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"receivevalue\": 499,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": \"credito\",\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\",\n        \"paid\": true\n    },\n    {\n        \"id\": 1,\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"receivevalue\": 499,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": \"credito\",\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\",\n        \"paid\": true\n    },\n    {\n        \"id\": 1,\n        \"number\": 441,\n        \"emission\": \"2019-03-20\",\n        \"validity\": \"2019-03-25\",\n        \"time\": \"15:45:00\",\n        \"value\": 514.8,\n        \"receivevalue\": 499,\n        \"flag\": \"mastercard\",\n        \"type\": \"credito\",\n        \"period\": \"credito\",\n        \"status\": \"aprovada\",\n        \"tag\": \"TAG\",\n        \"paid\": true\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/receivable/anticipate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 1,\n    \"antecipate\": \n\t    {\n\t    \t\"date\": \"2019-03-21\",\n\t    \t\"value\": 504\n\t    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/receivable/anticipate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"receivable",
+						"anticipate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/receivable/anticipate",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n    \"antecipate\": \n\t    {\n\t    \t\"date\": \"2019-03-21\",\n\t    \t\"value\": 504\n\t    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/receivable/anticipate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"receivable",
+								"anticipate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "220"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dc-bo+ThiV93honlgl35Oth8IQYIPg\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:40:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"number\": 441,\n    \"emission\": \"2019-03-20\",\n    \"validity\": \"2019-03-21\",\n    \"time\": \"15:45:00\",\n    \"value\": 514.8,\n    \"receivevalue\": 504,\n    \"flag\": \"mastercard\",\n    \"type\": \"credito\",\n    \"period\": \"credito\",\n    \"status\": \"aprovada\",\n    \"tag\": \"TAG\",\n    \"paid\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/reports/csv/transaction",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reports/csv/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reports",
+						"csv",
+						"transaction"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/reports/csv/transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/reports/csv/transaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"reports",
+								"csv",
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv; charset=utf-8"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"reporttransaction.csv\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "613"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"265-k/TCJr4UvNp3g9uazl67coo1PhU\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:41:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "\"number\",\"emission\",\"validity\",\"time\",\"value\",\"flag\",\"type\",\"period\",\"status\",\"tag\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"debito\",1,\"negada\",\"TAG\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"debito\",1,\"negada\",\"TAG\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"credito\",12,\"aprovada\",\"TAG\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"debito\",1,\"negada\",\"TAG\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"credito\",12,\"aprovada\",\"TAG\"\r\n441,\"2019-03-20\",\"2019-03-25\",\"15:45:00\",514.8,\"mastercard\",\"debito\",1,\"negada\",\"TAG\""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/reports/csv/receivable",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzMzE1LCJleHAiOjE1NjU4ODM2MTV9.xp3JXCE6CF7_rQfbESx6ojP5uEJRBvcdCx7XcH6eU5w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reports/csv/receivable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reports",
+						"csv",
+						"receivable"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/api/reports/csv/receivable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTY1ODgzNTUxLCJleHAiOjE1NjU4ODM4NTF9.tz_WuQL0E-qCO33bkAJ608NqYMVSZISUDC3hX9fjkxA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/reports/csv/receivable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"reports",
+								"csv",
+								"receivable"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/csv; charset=utf-8"
+						},
+						{
+							"key": "Content-Disposition",
+							"value": "attachment; filename=\"reportreceivable.csv\""
+						},
+						{
+							"key": "Content-Length",
+							"value": "546"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"222-tsuBZgS1rK5djQCxZcPtLUs0g88\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 15 Aug 2019 15:41:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "\"id\",\"number\",\"emission\",\"validity\",\"time\",\"value\",\"receivevalue\",\"flag\",\"type\",\"period\",\"status\",\"tag\",\"paid\"\r\n1,441,\"2019-03-20\",\"2019-03-21\",\"15:45:00\",514.8,504,\"mastercard\",\"credito\",\"credito\",\"aprovada\",\"TAG\",true\r\n1,441,\"2019-03-20\",\"2019-03-21\",\"15:45:00\",514.8,504,\"mastercard\",\"credito\",\"credito\",\"aprovada\",\"TAG\",true\r\n1,441,\"2019-03-20\",\"2019-03-21\",\"15:45:00\",514.8,504,\"mastercard\",\"credito\",\"credito\",\"aprovada\",\"TAG\",true\r\n1,441,\"2019-03-20\",\"2019-03-21\",\"15:45:00\",514.8,504,\"mastercard\",\"credito\",\"credito\",\"aprovada\",\"TAG\",true"
+				}
+			]
+		}
+	]
+}
