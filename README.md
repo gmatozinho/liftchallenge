@@ -3,10 +3,15 @@ Projeto para o desafio liftbank:
 Este projeto contêm uma api node com as seguintes funcionalidades:
 
 Login: Logar o usuário
+
 Listar transações: Listar os objetos transações de cada usuário
+
 Listar recebíveis: As transações viram um recebível com o valor da taxa descontado, o recebível deve ter uma campo que diz se ele já foi pago ou não.
+
 Antecipar recebíveis: Muda a data de pagamento e o valor à ser pago do objeto recebível.
+
 Exportar Relatório, exportar em CSV os dados de transações e recebíveis.
+
 
 Para login foi usado o jwt (json web token) para efetuar a autenticação.
 
